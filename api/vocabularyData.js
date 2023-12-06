@@ -19,4 +19,28 @@ const getVocabulary = (uid) => new Promise((resolve, reject) => {
     })
     .catch(reject);
 });
-export default getVocabulary;
+const createVocabulary = (payload) => new Promise((resolve, reject) => {
+  fetch('https://vocab-you-lary-f2729-default-rtdb.firebaseio.com/vocabulary.json', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+const updateVocabulary = (payload) => new Promise((resolve, reject) => {
+  fetch(`https://vocab-you-lary-f2729-default-rtdb.firebaseio.com/vocabulary/${payload.firebaseKey}.json`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  })
+    .then((response) => response.json())
+    .then(resolve)
+    .catch(reject);
+});
+export { getVocabulary, createVocabulary, updateVocabulary };
