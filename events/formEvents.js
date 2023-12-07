@@ -4,7 +4,7 @@ import { showVocabulary } from "../pages/vocabulary";
 const formEvents = (user) => {
   document.querySelector('#main-container').addEventListener('submit', (e) => {
     e.preventDefault();
-    if (e.target.id.includes('submit-form')) {
+    if (e.target.id.includes('submit-author')) {
       const payload = {
         title: document.querySelector('#title').value,
         definition: document.querySelector('#definition').value,
