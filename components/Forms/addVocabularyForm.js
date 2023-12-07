@@ -11,8 +11,8 @@ const addVocabForm = (obj = {}) => {
         <input type="text" class="form-control" id="title" placeholder="Title" required>
       </div>
       <div class="form-group">
-        <label for="image">Deffinition</label>
-        <input type="text" class="form-control" id="deffinition" placeholder="Deffinition" required>
+        <label for="image">Definition</label>
+        <input type="text" class="form-control" id="definition" placeholder="Definition" required>
       </div>
       <div class="form-group">
         <label for="title">Language/Tech</label>

@@ -22,6 +22,20 @@ const formEvents = (user) => {
         });
       });
     }
+    if (e.target.id.includes('update-vocabulary')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      const payload = {
+        title: document.querySelector('#title').value,
+        definition: document.querySelector('#definition').value,
+        language: document.querySelector('#language-tech').value,
+        firebaseKey,
+      };
+    
+      updateVocabulary(payload).then(() => {
+        getVocabulary().then(showVocabulary);
+      });
+    }
+    
   });
 }
 
