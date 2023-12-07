@@ -2,7 +2,7 @@ import { createVocabulary, getVocabulary, updateVocabulary } from "../api/vocabu
 import { showVocabulary } from "../pages/vocabulary";
 
 const formEvents = (user) => {
-  document.querySelector('#main-container').addEventListener('submit', (e) => {
+  document.querySelector('#form-container').addEventListener('submit', (e) => {
     e.preventDefault();
     if (e.target.id.includes('submit-author')) {
       const payload = {
