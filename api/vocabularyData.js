@@ -1,4 +1,5 @@
 // import endpoint from '../utils/client';
+
 const getVocabulary = (uid) => new Promise((resolve, reject) => {
   fetch(`https://vocab-you-lary-f2729-default-rtdb.firebaseio.com/vocabulary.json?uid=${uid}`, {
     method: 'GET',
@@ -34,4 +35,17 @@ const updateVocabulary = (payload) => new Promise((resolve, reject) => {
     .then(resolve)
     .catch(reject);
 });
-export { getVocabulary, createVocabulary, updateVocabulary };
+const deleteVocabulary = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`https://vocab-you-lary-f2729-default-rtdb.firebaseio.com/vocabulary/${firebaseKey}.json`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+export {
+  getVocabulary, createVocabulary, updateVocabulary, deleteVocabulary
+};
