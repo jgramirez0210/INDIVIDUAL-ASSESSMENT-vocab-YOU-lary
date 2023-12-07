@@ -46,6 +46,17 @@ const deleteVocabulary = (firebaseKey) => new Promise((resolve, reject) => {
     .then((data) => resolve(data))
     .catch(reject);
 });
+const getSingleWord = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`https://vocab-you-lary-f2729-default-rtdb.firebaseio.com/vocabulary/books/${firebaseKey}.json`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    }, // you technically do not need the options object for GET requests, but using it here for consistency
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data)) // will resolve a single object
+    .catch(reject);
+});
 export {
-  getVocabulary, createVocabulary, updateVocabulary, deleteVocabulary
+  getVocabulary, createVocabulary, updateVocabulary, deleteVocabulary, getSingleWord
 };
