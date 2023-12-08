@@ -51,12 +51,54 @@ const getSingleWord = (firebaseKey) => new Promise((resolve, reject) => {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
-    }, // you technically do not need the options object for GET requests, but using it here for consistency
+    },
   })
     .then((response) => response.json())
     .then((data) => resolve(data)) // will resolve a single object
     .catch(reject);
 });
+const filterByHtml = () => new Promise((resolve, reject) => {
+  fetch('https://vocab-you-lary-f2729-default-rtdb.firebaseio.com//vocabulary.json?orderBy="language"&equalTo="HTML"', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      const filteredHtml = Object.values(data).filter((item) => item.language);
+      resolve(filteredHtml);
+    })
+    .catch(reject);
+});
+const filterByCss = () => new Promise((resolve, reject) => {
+  fetch('https://vocab-you-lary-f2729-default-rtdb.firebaseio.com//vocabulary.json?orderBy="language"&equalTo="CSS"', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      const filteredCss = Object.values(data).filter((item) => item.language);
+      resolve(filteredCss);
+    })
+    .catch(reject);
+});
+const filterByJavaScript = () => new Promise((resolve, reject) => {
+  fetch('https://vocab-you-lary-f2729-default-rtdb.firebaseio.com//vocabulary.json?orderBy="language"&equalTo="JavaScript"', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      const filteredJS = Object.values(data).filter((item) => item.language);
+      resolve(filteredJS);
+    })
+    .catch(reject);
+});
 export {
-  getVocabulary, createVocabulary, updateVocabulary, deleteVocabulary, getSingleWord
+  getVocabulary, createVocabulary, updateVocabulary, deleteVocabulary, getSingleWord, filterByCss, filterByHtml, filterByJavaScript
 };

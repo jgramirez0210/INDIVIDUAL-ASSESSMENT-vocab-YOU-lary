@@ -15,8 +15,12 @@ const addVocabForm = (obj = {}) => {
         <input type="text" class="form-control" id="definition" placeholder="Definition" required>
       </div>
       <div class="form-group">
-        <label for="title">Language/Tech</label>
-        <input type="text" class="language-tech" id="language-tech" aria-describedby="language" placeholder="Enter Email" required>
+      <select class="form-select" aria-label="Language/Tech">
+  <option selected>Language/Tec</option>
+  <option value="HTML">HTML</option>
+  <option value="CSS">CSS</option>
+  <option value="JavaScript">JavaScript</option>
+</select>
       </div>
       <button type="submit" id="submit-form" class="btn btn-primary mt-3">Submit </button>
     </form>`;

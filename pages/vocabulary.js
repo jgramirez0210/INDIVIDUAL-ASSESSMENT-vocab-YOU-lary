@@ -7,7 +7,11 @@ const noVocabulary = () => {
 };
 const showVocabulary = (array) => {
   clearDom();
-  const btnString = '<button class="btn btn-success btn-lg mb-4" id="add-vocabulary-btn">Add A Vocabulary Word</button>';
+  const btnString = `<button class="btn btn-success btn-lg mb-4" id="add-vocabulary-btn">Add A Vocabulary Word</button>
+    <button class="btn btn-success btn-lg mb-4" id="filter-by-html">Filter By HTML</button>
+    <button class="btn btn-success btn-lg mb-4" id="filter-by-css">Filter By CSS</button> 
+    <button class="btn btn-success btn-lg mb-4" id="filter-by-javascript">Filter By JavaScript</button>`;
+
   renderToDOM('#add-button', btnString);
 
   let domString = '';
