@@ -1,4 +1,6 @@
-import { deleteVocabulary, getVocabulary, getSingleWord } from '../api/vocabularyData';
+import {
+  deleteVocabulary, getVocabulary, getSingleWord, filterByCss, filterByHtml, filterByJavaScript
+} from '../api/vocabularyData';
 import addVocabForm from '../components/Forms/addVocabularyForm';
 import { showVocabulary } from '../pages/vocabulary';
 
@@ -22,6 +24,18 @@ const domEvents = () => {
       const [, firebaseKey] = e.target.id.split('--');
       getSingleWord(firebaseKey).then((vocabObj) => addVocabForm(vocabObj));
     }
+    document.querySelector('#filter-by-css').addEventListener('click', () => {
+      filterByCss().then(showVocabulary);
+      console.warn('CLICKED FILTER BY CSS');
+    });
+    document.querySelector('#filter-by-html').addEventListener('click', () => {
+      filterByHtml().then(showVocabulary);
+      console.warn('CLICKED FILTER BY HTML');
+    });
+    document.querySelector('#filter-by-javascript').addEventListener('click', () => {
+      filterByJavaScript().then(showVocabulary);
+      console.warn('CLICKED FILTER BY JAVASCRIPT');
+    });
   });
 };
 export default domEvents;
