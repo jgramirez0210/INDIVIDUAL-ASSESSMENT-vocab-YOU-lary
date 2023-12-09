@@ -36,7 +36,7 @@ const formEvents = (user) => {
         firebaseKey,
       };
       updateVocabulary(payload).then(() => {
-        getVocabulary().then(showVocabulary);
+        getVocabulary(user.uid).then(showVocabulary);
       });
     }
   });

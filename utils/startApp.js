@@ -14,7 +14,7 @@ const startApp = (user) => {
   domEvents();
   formEvents(user);
 };
-// document.addEventListener('click', (e) => {
-//   console.warn(e.target.id);
-// });
+document.addEventListener('click', (e) => {
+  console.warn(e.target.id);
+});
 export default startApp;
