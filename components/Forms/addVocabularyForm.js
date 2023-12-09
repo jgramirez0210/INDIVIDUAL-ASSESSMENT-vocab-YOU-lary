@@ -3,23 +3,21 @@ import renderToDOM from '../../utils/renderToDom';
 
 const addVocabForm = (obj = {}) => {
   clearDom();
-  const firebaseKey = obj ? obj.firebaseKey : null;
+  // const firebaseKey = obj ? obj.firebaseKey : null;
   const domString = `
-    <form id="${firebaseKey ? `update-vocabulary--${firebaseKey}` : 'submit-author'}" class="mb-4">
+    <form id="${obj.firebaseKey ? `update-vocabulary--${obj.firebaseKey}` : 'submit-vocabulary'}" class="mb-4">
       <div class="form-group">
-        <label for="image">Title</label>
-        <input type="text" class="form-control" id="title" placeholder="Title" required>
+      <label for="title">Vocabulary Title</label>
+      <input type="text" class="form-control" id="title" aria-describedby="vocabularyTitle" placeholder="Enter a Vocabulary Title" value="${obj.title || ''}" required>
       </div>
       <div class="form-group">
-        <label for="image">Definition</label>
-        <input type="text" class="form-control" id="definition" placeholder="Definition" required>
+      <label for="title">Vocabulary Definition</label>
+      <input type="text" class="form-control" id="definition" aria-describedby="vocabularyDefinition" placeholder="Enter a Vocabulary Definition" value="${obj.definition || ''}" required>
       </div>
       <div class="form-group">
-      <select class="form-select" aria-label="Language/Tech">
-  <option selected>Language/Tec</option>
-  <option value="HTML">HTML</option>
-  <option value="CSS">CSS</option>
-  <option value="JavaScript">JavaScript</option>
+      <label for="title">Vocabulary Language </label>
+      <input type="text" class="form-control" id="vocabulary-language" aria-describedby="vocabulary-language" placeholder="Enter a Vocabulary Language" value="${obj.language || ''}" required>
+      </div>  
 </select>
       </div>
       <button type="submit" id="submit-form" class="btn btn-primary mt-3">Submit </button>
