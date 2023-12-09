@@ -24,18 +24,20 @@ const domEvents = () => {
       const [, firebaseKey] = e.target.id.split('--');
       getSingleWord(firebaseKey).then((vocabObj) => addVocabForm(vocabObj));
     }
-    document.querySelector('#filter-by-css').addEventListener('click', () => {
-      filterByCss().then(showVocabulary);
-      console.warn('CLICKED FILTER BY CSS');
-    });
-    document.querySelector('#filter-by-html').addEventListener('click', () => {
-      filterByHtml().then(showVocabulary);
-      console.warn('CLICKED FILTER BY HTML');
-    });
-    document.querySelector('#filter-by-javascript').addEventListener('click', () => {
-      filterByJavaScript().then(showVocabulary);
-      console.warn('CLICKED FILTER BY JAVASCRIPT');
-    });
+    window.onload = function onloadFunction() {
+      document.querySelector('#filter-by-css').addEventListener('click', () => {
+        filterByCss().then(showVocabulary);
+        console.warn('CLICKED FILTER BY CSS');
+      });
+      document.querySelector('#filter-by-html').addEventListener('click', () => {
+        filterByHtml().then(showVocabulary);
+        console.warn('CLICKED FILTER BY HTML');
+      });
+      document.querySelector('#filter-by-javascript').addEventListener('click', () => {
+        filterByJavaScript().then(showVocabulary);
+        console.warn('CLICKED FILTER BY JAVASCRIPT');
+      });
+    };
   });
 };
 export default domEvents;
